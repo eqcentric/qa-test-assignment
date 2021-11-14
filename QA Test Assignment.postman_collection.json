@@ -1,0 +1,163 @@
+{
+	"info": {
+		"_postman_id": "2607e888-83fd-4fca-96e8-81897d2b18da",
+		"name": "QA Test Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get adapter info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ADAPTER_URL}}/info",
+					"host": [
+						"{{ADAPTER_URL}}"
+					],
+					"path": [
+						"info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get adapter pipeline",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{ADAPTER_URL}}/pipeline",
+					"host": [
+						"{{ADAPTER_URL}}"
+					],
+					"path": [
+						"pipeline"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sync data from adapter",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Write data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"name\" : \"Engines\",\r\n        \"description\" : \"Engines\",\r\n        \"active\" : true,\r\n        \"deactivated\" : null,\r\n        \"category\" : \"Engine\",\r\n        \"is_critical_system\" : false,\r\n        \"manufacturer\" : null,\r\n        \"serial_number\" : null,\r\n        \"siteId\" : \"500000016189391da6bd3dbf6bfb04b6\",\r\n        \"parentId\" : null,\r\n        \"modelName\": \"Test\",\r\n        \"id\" : \"5000000261893923a6bd3dbf6bfb0de2\",\r\n        \"modelId\" : \"5000000261893923a6bd3dbf6bfb0de2\"\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/data/:id",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"data",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Setup data output",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/setup/:id",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"setup",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/data/:id",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"data",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "API_URL",
+			"value": "http://localhost:8888"
+		},
+		{
+			"key": "ADAPTER_URL",
+			"value": "http://localhost:3000"
+		}
+	]
+}

@@ -1,0 +1,31 @@
+version: '2.4'
+
+services:
+  mongo:
+    container_name: qa-mongo
+    image: bitnami/mongodb:latest
+    environment:
+      - MONGODB_ROOT_PASSWORD=${MONGO_PASSWORD:-secret}
+    ports:
+      - ${MONGO_PORT:-27055}:27017
+
+  adapter:
+    container_name: qa-adapter
+    build:
+      context: adapter/.
+      dockerfile: Dockerfile
+    environment:
+      API_URL: http://qa-api:8888
+    ports:
+      - 3000:3000
+
+  api:
+    container_name: qa-api
+    build:
+      context: api/.
+      dockerfile: Dockerfile
+    environment:
+      ADAPTER_URI: http://qa-adapter:3000
+      MONGO_URI: mongodb://root:${MONGO_PASSWORD:-secret}@qa-mongo:27017
+    ports:
+      - 8888:8888

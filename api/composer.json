@@ -1,0 +1,17 @@
+{
+    "name": "makini/qa-assignment-api",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Roman Kinyakin",
+            "email": "rkgrep@pm.me"
+        }
+    ],
+    "require": {
+        "slim/slim": "4.*",
+        "slim/psr7": "^1.5",
+        "mongodb/mongodb": "1.8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "vlucas/phpdotenv": "^5.4"
+    }
+}
